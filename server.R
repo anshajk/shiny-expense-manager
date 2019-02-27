@@ -26,8 +26,9 @@ shinyServer(function(input, output) {
                           'need' = need,
                           'category' = input$category,
                           'mode' = mode)
-    transaction_data = rbind(transaction_data,new_data)
-    write.csv(transaction_data, './transactions.csv')
+    transaction_data$X = NULL
+    new_data = rbind(transaction_data,new_data)
+    write.csv(new_data, './transactions.csv')
   })
 
   output$transactionCategories = renderUI({
@@ -39,6 +40,7 @@ shinyServer(function(input, output) {
     data$time = anytime(data$time,tz = "Asia/Kolkata")
     data$time = strftime(data$time,format = "%I:%M %p",tz = "Asia/Kolkata")
     data$X = NULL
+    input$submit
     data
   })
 })

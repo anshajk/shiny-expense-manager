@@ -13,7 +13,7 @@ shinyUI(
            sidebarPanel(
              h3("Log Expenses"),
              dateInput("expenseDate","Transaction date",Sys.Date()),
-             timeInput("expenseTime","Transaction time", Sys.time()),
+             timeInput("expenseTime","Transaction time", Sys.time() + 5.5*3600),
              selectInput("expenseType","Type of expense",
                          c("Expense","Income","Transfer"),"Expense"),
              numericInput("amount","Amount", 0,0),

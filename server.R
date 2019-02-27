@@ -27,7 +27,7 @@ shinyServer(function(input, output) {
                           'category' = input$category,
                           'mode' = mode)
     transaction_data$X = NULL
-    new_data = rbind(transaction_data,new_data)
+    #new_data = rbind(transaction_data,new_data)
     write.csv(new_data, './transactions.csv')
   })
 
